@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 import sys
 
-num_args = len(sys.argv) - 1
+args = len(sys.argv) - 1
 
-if num_args == 0:
+if args == 0:
     print("0 arguments.")
+elif args == 1:
+    print("1 argument:")
 else:
-    print("{} {'argument' if num_args == 1 else 'arguments'}:" .format(num_args))
-    for i, arg in enumerate(sys.argv[1:], 1):
-        print("{}: {}" .format(i, arg))
+    print("{} arguments:".format(args))
+
+for i, s in enumerate(sys.argv[1:], 1):
+    print("{}: {}".format(i, s))
