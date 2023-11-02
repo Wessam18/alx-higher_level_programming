@@ -14,4 +14,4 @@ else:
 
 
 for y in range(args):
-        print("{}: {}".format(y + 1, sys.argv[y + 1]))
+    print("{}: {}".format(y + 1, sys.argv[y + 1]))
