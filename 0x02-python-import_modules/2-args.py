@@ -4,7 +4,6 @@ if __name__ == "__main__":
 
 args = len(sys.argv) - 1
 
-# Determine the pluralization of "argument(s)"
 if args == 0:
     print("0 arguments.")
 elif args == 1:
@@ -13,5 +12,5 @@ else:
     print("{} arguments:".format(args))
 
 
-for y in range(args):
-    print("{}: {}".format(y + 1, sys.argv[y + 1]))
+for y in range(1, args + 1):
+    print("{}: {}".format(y, sys.argv[y]))
