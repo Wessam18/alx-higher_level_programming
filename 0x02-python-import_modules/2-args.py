@@ -12,5 +12,5 @@ else:
     print("{} arguments:".format(args))
 
 
-for y in range(args + 1):
+for y in range(1, args + 1):
     print("{}: {}".format(y, sys.argv[y]))
