@@ -5,8 +5,3 @@ def square_matrix_simple(matrix=[]):
         sub = list(map(lambda i: i ** 2, row))
         new_list.append(sub)
     return new_list
-    
-    
-    
-    #res = map(lambda sub: list(map(lambda i: i ** 2, sub)), matrix)
-    #return list(res)
