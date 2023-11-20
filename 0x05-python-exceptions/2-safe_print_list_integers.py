@@ -3,9 +3,13 @@ def safe_print_list_integers(my_list=[], x=0):
     count = 0
     try:
         while count < x:
-            print("{:d:".format(my_list[count]), end="")
+            value = my_list[count]
+            if not isinstance(value, int):
+                raise ValueError("Element is not an integer")
+            
+            print("{:d}".format(value), end="")
             count += 1
-    except (IndexError, ValueError, TypeError):
+    except (ValueError, IndexError):
         pass
     finally:
         print()
