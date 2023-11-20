@@ -8,5 +8,5 @@ def safe_print_list(my_list=[], x=0):
     except IndexError:
         None
 
-    print()
+    print("\n")
     return count
