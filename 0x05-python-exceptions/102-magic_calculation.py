@@ -7,7 +7,4 @@ def magic_calculation(a, b):
             result += (a ** b) / i
         except ValueError:
             result += b + a
-        finally:
-            result += a + b
-
     return result
