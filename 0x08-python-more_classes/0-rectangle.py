@@ -2,6 +2,8 @@
 """
 define an empty class
 """
+
+
 class Rectangle:
 
     """define a rectangle"""
