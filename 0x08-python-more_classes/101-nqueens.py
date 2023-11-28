@@ -1,26 +1,25 @@
 #!/usr/bin/python3
 import sys
 
+
 def is_safe(board, row, col, N):
-    # Check if there is a queen in the same row
+
     if any(board[row]):
         return False
 
-    # Check if there is a queen in the same column
     if any(board[i][col] for i in range(N)):
         return False
 
-    # Check if there is a queen in the same left diagonal
     if any(board[i][j] for i, j in zip(range(row, -1, -1), range(col, -1, -1))):
         return False
 
-    # Check if there is a queen in the same right diagonal
     if any(board[i][j] for i, j in zip(range(row, -1, -1), range(col, N))):
         return False
-
     return True
 
+
 def solve_nqueens(N):
+
     if N < 4:
         print("N must be at least 4")
         sys.exit(1)
@@ -46,6 +45,7 @@ def solve_nqueens(N):
         for row in solution:
             print(row)
         print()
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
