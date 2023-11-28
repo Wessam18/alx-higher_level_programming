@@ -3,12 +3,10 @@
 
 
 class Rectangle:
-    """defines a rectangle"""
     number_of_instances = 0
     print_symbol = '#'
 
     def __init__(self, width=0, height=0):
-        """instance constructor"""
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
@@ -46,16 +44,16 @@ class Rectangle:
         return (self.__width + self.__height) * 2
 
     def __str__(self):
-        """return the printable representation of the object"""
         if self.__width == 0 or self.__height == 0:
             return ""
-        rectangle_str = ""
-        for i in range(self.__height):
-            rectangle_str += str(Rectangle.print_symbol) * self.__width + "\n"
-        return rectangle_str.rstrip()
+        else:
+            rectangle_str = ""
+            for i in range(self.__height):
+                rectangle_str += str(Rectangle.print_symbol)\
+                    * self.__width + "\n"
+            return rectangle_str.rstrip()
 
     def __repr__(self):
-        """return the string representation of the object"""
         return "Rectangle({}, {})".format(self.__width, self.__height)
 
     def __del__(self):
