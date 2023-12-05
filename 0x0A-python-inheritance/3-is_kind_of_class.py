@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-""" 
-    A function determine the object is exactly an instance of the specified class
+"""
+    A function determine the object is
+    exactly an instance of the specified class
 Args:
         obj: the object to test
         a_class: the parent

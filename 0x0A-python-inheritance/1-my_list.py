@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" 
+"""
     Write a class MyList that inherits from list
 Args:
         list: the parent class to inhert from
