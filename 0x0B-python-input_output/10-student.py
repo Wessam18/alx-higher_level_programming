@@ -19,7 +19,7 @@ class Student:
         """function retrieves a dictionary representation of a Student
         """
         if attrs is None or not isinstance(attrs, (list, tuple)):
-            return self.__dict__.copy()
+            return vars(self)
         else:
             ret = {k: v for k, v in filter(lambda x: x[0] in attrs,
                                            self.__dict__.items())}
