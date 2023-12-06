@@ -18,4 +18,4 @@ class Student:
     def to_json(self):
         """function retrieves a dictionary representation of a Student
         """
-        return self.__dict__
+        return vars(self)
