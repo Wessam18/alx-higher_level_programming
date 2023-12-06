@@ -21,6 +21,8 @@ class Student:
         if attrs is None or not isinstance(attrs, (list)):
             return vars(self)
         else:
-            ret = {k: v for k, v in filter(lambda x: x[0] in attrs,
-                                           self.__dict__.items())}
-            return ret
+            new_dic = dict()
+            for key, value in vars(self).items():
+                if key in attrs:
+                    new_dic[key] = value
+            return new_dic
