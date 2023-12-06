@@ -18,7 +18,7 @@ class Student:
     def to_json(self, attrs=None):
         """function retrieves a dictionary representation of a Student
         """
-        if attrs is None or not isinstance(attrs, (list, tuple)):
+        if attrs is None or not isinstance(attrs, (list)):
             return vars(self)
         else:
             ret = {k: v for k, v in filter(lambda x: x[0] in attrs,
