@@ -12,9 +12,7 @@ def append_after(filename="", search_string="", new_string=""):
         new_string (str): The string to append
         after the lines containing the search string.
     """
-    with open(filename, 'r+') as file:
-        lines = file.readlines()
-        for line in lines:
-            file.write(line)
+    with open(filename, 'r+', encoding="utf-8") as f:
+        for line in f:
             if search_string in line:
-                file.write(new_string + '\n')
+                f.write(new_string + '\n')
