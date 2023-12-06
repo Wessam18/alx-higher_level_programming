@@ -9,5 +9,5 @@ import json
 
 def load_from_json_file(filename):
     """function that returns the deseialize data"""
-    with open(filename, "w", encoding="utf-8") as f:
+    with open(filename, "r", encoding="utf-8") as f:
         return json.load(filename)
