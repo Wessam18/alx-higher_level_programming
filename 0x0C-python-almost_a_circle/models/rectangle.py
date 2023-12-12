@@ -180,9 +180,11 @@ class Rectangle(Base):
         Returns a string representation of the rectangle.
 
         Returns:
-        str: A formatted string representing the rectangle, including its id, position, and dimensions.
+        str: A formatted string representing the rectangle,
+        including its id, position, and dimensions.
         """
-        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
+        return f"[Rectangle] \
+            ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
 
     def update(self, *args, **kwargs):
         """
@@ -195,7 +197,8 @@ class Rectangle(Base):
             3rd argument: height
             4th argument: x
             5th argument: y
-        - **kwargs: Variable-length keyworded argument list (key-worded arguments).
+        - **kwargs: Variable-length keyworded argument
+        list (key-worded arguments).
             Each key represents an attribute to update.
 
         Notes:
@@ -221,7 +224,8 @@ class Rectangle(Base):
         Returns a dictionary representation of the rectangle.
 
         Returns:
-        dict: A dictionary containing the id, x, width, y, and height attributes of the rectangle.
+        dict: A dictionary containing the id, x, width, y,
+        and height attributes of the rectangle.
         """
         return {'x': self.x, 'y': self.y, 'id': self.id,
                 'width': self.width, 'height': self.height}

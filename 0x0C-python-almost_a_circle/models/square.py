@@ -30,7 +30,8 @@ class Square(Rectangle):
         Returns a string representation of the square.
 
         Returns:
-        str: A formatted string representing the square, including its id, position, and size.
+        str: A formatted string representing the square,
+        including its id, position, and size.
         """
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.size}"
 
@@ -76,7 +77,8 @@ class Square(Rectangle):
             2nd argument: size
             3rd argument: x
             4th argument: y
-        - **kwargs: Variable-length keyworded argument list (key-worded arguments).
+        - **kwargs: Variable-length keyworded
+        argument list (key-worded arguments).
             Each key represents an attribute to update.
 
         Notes:
@@ -100,6 +102,7 @@ class Square(Rectangle):
         Returns a dictionary representation of the square.
 
         Returns:
-        dict: A dictionary containing the id, x, size, and y attributes of the square.
+        dict: A dictionary containing the id,
+        x, size, and y attributes of the square.
         """
         return {'id': self.id, 'x': self.x, 'size': self.size, 'y': self.y}
