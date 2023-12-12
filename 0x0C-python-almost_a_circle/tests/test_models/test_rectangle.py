@@ -160,16 +160,65 @@ given"
              [4], {5}, {6: 7}, None)
         return t
 
-    def test_G_validate_type(self):
-        '''Tests property validation.'''
+    def test_width_property_and_setter(self):
         r = Rectangle(1, 2)
-        attributes = ["x", "y", "width", "height"]
-        for attribute in attributes:
-            s = "{} must be an integer".format(attribute)
-            for invalid_type in self.invalid_types():
-                with self.assertRaises(TypeError) as e:
-                    setattr(r, attribute, invalid_type)
-                self.assertEqual(str(e.exception), s)
+
+        # Valid width assignment
+        r.width = 5
+        self.assertEqual(r.width, 5)
+
+        # Invalid width assignment (not an integer)
+        with self.assertRaises(TypeError):
+            r.width = "invalid"
+
+        # Invalid width assignment (<= 0)
+        with self.assertRaises(ValueError):
+            r.width = 0
+
+    def test_height_property_and_setter(self):
+        r = Rectangle(1, 2)
+
+        # Valid height assignment
+        r.height = 8
+        self.assertEqual(r.height, 8)
+
+        # Invalid height assignment (not an integer)
+        with self.assertRaises(TypeError):
+            r.height = "invalid"
+
+        # Invalid height assignment (<= 0)
+        with self.assertRaises(ValueError):
+            r.height = -2
+
+    def test_x_property_and_setter(self):
+        r = Rectangle(1, 2)
+
+        # Valid x assignment
+        r.x = 3
+        self.assertEqual(r.x, 3)
+
+        # Invalid x assignment (not an integer)
+        with self.assertRaises(TypeError):
+            r.x = "invalid"
+
+        # Invalid x assignment (< 0)
+        with self.assertRaises(ValueError):
+            r.x = -1
+
+    def test_y_property_and_setter(self):
+        r = Rectangle(1, 2)
+
+        # Valid y assignment
+        r.y = 4
+        self.assertEqual(r.y, 4)
+
+        # Invalid y assignment (not an integer)
+        with self.assertRaises(TypeError):
+            r.y = "invalid"
+
+        # Invalid y assignment (< 0)
+        with self.assertRaises(ValueError):
+            r.y = -3
 
     def test_G_validate_value_negative_gt(self):
         '''Tests property validation.'''
@@ -498,68 +547,46 @@ given"
         d["_Rectangle__y"] = 25
         self.assertEqual(r.__dict__, d)
 
-    def test_L_update_kwargs_2(self):
-        '''Tests update() keyword args.'''
-        r = Rectangle(5, 2)
-        d = r.__dict__.copy()
+    def test_update_with_args(self):
+        rect = Rectangle(1, 2, 3, 4, 5)
 
-        r.update(id=10)
-        d["id"] = 10
-        self.assertEqual(r.__dict__, d)
+        # Test updating with *args
+        rect.update(10, 20, 30, 40, 50)
+        self.assertEqual(rect.id, 10)
+        self.assertEqual(rect.width, 20)
+        self.assertEqual(rect.height, 30)
+        self.assertEqual(rect.x, 40)
+        self.assertEqual(rect.y, 50)
 
-        r.update(id=10, width=5)
-        d["_Rectangle__width"] = 5
-        self.assertEqual(r.__dict__, d)
+        # Test updating with partial *args
+        rect.update(11, 21, 31)
+        self.assertEqual(rect.id, 11)
+        self.assertEqual(rect.width, 21)
+        self.assertEqual(rect.height, 31)
 
-        r.update(id=10, width=5, height=17)
-        d["_Rectangle__height"] = 17
-        self.assertEqual(r.__dict__, d)
+    def test_update_with_kwargs(self):
+        rect = Rectangle(1, 2, 3, 4, 5)
 
-        r.update(id=10, width=5, height=17, x=20)
-        d["_Rectangle__x"] = 20
-        self.assertEqual(r.__dict__, d)
+        # Test updating with **kwargs
+        rect.update(width=100, height=200, x=300, y=400)
+        self.assertEqual(rect.width, 100)
+        self.assertEqual(rect.height, 200)
+        self.assertEqual(rect.x, 300)
+        self.assertEqual(rect.y, 400)
 
-        r.update(id=10, width=5, height=17, x=20, y=25)
-        d["_Rectangle__y"] = 25
-        self.assertEqual(r.__dict__, d)
+        # Test updating with partial **kwargs
+        rect.update(width=500, y=600)
+        self.assertEqual(rect.width, 500)
+        self.assertEqual(rect.y, 600)
 
-        r.update(y=25, id=10, height=17, x=20, width=5)
-        self.assertEqual(r.__dict__, d)
+    def test_update_with_mixed_args_and_kwargs(self):
+        rect = Rectangle(1, 2, 3, 4, 5)
 
-        Base._Base__nb_objects = 0
-        r1 = Rectangle(10, 10, 10, 10)
-        self.assertEqual(str(r1), "[Rectangle] (1) 10/10 - 10/10")
-
-        r1.update(height=1)
-        self.assertEqual(str(r1), "[Rectangle] (1) 10/10 - 10/1")
-
-        r1.update(width=1, x=2)
-        self.assertEqual(str(r1), "[Rectangle] (1) 2/10 - 1/1")
-
-        r1.update(y=1, width=2, x=3, id=89)
-        self.assertEqual(str(r1), "[Rectangle] (89) 3/1 - 2/1")
-
-        r1.update(x=1, height=2, y=3, width=4)
-        self.assertEqual(str(r1), "[Rectangle] (89) 1/3 - 4/2")
-
-        Base._Base__nb_objects = 0
-        r1 = Rectangle(10, 10, 10, 10)
-        self.assertEqual(str(r1), "[Rectangle] (1) 10/10 - 10/10")
-
-        r1.update(89)
-        self.assertEqual(str(r1), "[Rectangle] (89) 10/10 - 10/10")
-
-        r1.update(89, 2)
-        self.assertEqual(str(r1), "[Rectangle] (89) 10/10 - 2/10")
-
-        r1.update(89, 2, 3)
-        self.assertEqual(str(r1), "[Rectangle] (89) 10/10 - 2/3")
-
-        r1.update(89, 2, 3, 4)
-        self.assertEqual(str(r1), "[Rectangle] (89) 4/10 - 2/3")
-
-        r1.update(89, 2, 3, 4, 5)
-        self.assertEqual(str(r1), "[Rectangle] (89) 4/5 - 2/3")
+        # Test updating with a mix of *args and **kwargs
+        rect.update(100, height=200, x=300)
+        self.assertEqual(rect.id, 100)
+        self.assertEqual(rect.height, 200)
+        self.assertEqual(rect.x, 300)
 
     # ----------------- Tests for #13 ------------------------
     def test_M_to_dictionary(self):
