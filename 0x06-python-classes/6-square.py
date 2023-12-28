@@ -11,8 +11,8 @@ class Square:
         elif size < 0:
             raise ValueError("size must be >= 0")
 
-        elif not isinstance(position, tuple) or len(position) != 2 or \
-            not isinstance(position, int) or position[0] < 0 or \
+        elif not isinstance(position, tuple, int) or len(position) != 2 or \
+            position[0] < 0 or \
                 position[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
         else:
