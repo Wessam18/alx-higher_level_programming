@@ -44,9 +44,10 @@ class Rectangle:
 
     def __str__(self):
         """return the printable representation of the object"""
+        str = ""
         if self.__width == 0 or self.__height == 0:
-            return ""
-        rectangle_str = ""
+            return str
+        
         for i in range(self.__height):
-            rectangle_str += "#" * self.__width + "\n"
-        return rectangle_str
+            str += "#" * self.__width + "\n"
+        return str.rstrip()
