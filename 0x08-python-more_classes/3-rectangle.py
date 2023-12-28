@@ -50,4 +50,4 @@ class Rectangle:
 
         for i in range(self.__height):
             str += ("#" * self.__width) + "\n"
-        return str.rstrip()
+        return str
