@@ -1,17 +1,12 @@
 #!/usr/bin/python3
-"""
-    A function determine the object is
-    exactly an instance of the specified class
-Args:
-	obj: the object to test
-	a_class: the parent
-Return:
-	true or false
-"""
+"""isinistance module"""
 
 
 def is_same_class(obj, a_class):
-    """"
-    function determine the object is exactly an instance of the specified class
     """
+    function that return True if
+    The obj is inistance of a_class
+    or false if is not
+    """
+
     return type(obj) is a_class
