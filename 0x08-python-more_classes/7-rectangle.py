@@ -52,7 +52,10 @@ class Rectangle:
             return ''
 
         for i in range(self.__height):
-            result.append('[' + str(self.print_symbol * self.__width) + ']')
+            line = str(self.print_symbol) * self.__width
+        if isinstance(self.print_symbol, list):
+            line = '[' + line + ']'
+        result.append(line)
 
         return '\n'.join(result)
 
