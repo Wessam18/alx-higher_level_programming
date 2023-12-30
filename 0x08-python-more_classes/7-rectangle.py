@@ -52,7 +52,7 @@ class Rectangle:
             return ''
 
         for i in range(self.__height):
-            result.append(str(self.print_symbol * self.__width))
+            result.append('[' + str(self.print_symbol * self.__width) + ']')
 
         return '\n'.join(result)
 
