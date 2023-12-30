@@ -55,7 +55,7 @@ class Rectangle:
             result += str(self.print_symbol) * self.__width
             if i < self.__height - 1:
                 result += "\n"
-        return result 
+        return result
 
     def __repr__(self):
         """return the string representation of the object"""
