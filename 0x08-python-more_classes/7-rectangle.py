@@ -47,17 +47,15 @@ class Rectangle:
 
     def __str__(self):
         """return the printable representation of the object"""
-        result = []
+        result = ""
         if self.__width == 0 or self.__height == 0:
             return ''
 
         for i in range(self.__height):
-            line = str(self.print_symbol) * self.__width
-        if isinstance(self.print_symbol, list):
-            line = '[' + line + ']'
-        result.append(line)
-
-        return '\n'.join(result)
+            result += str(self.print_symbol) * self.__width
+            if i < self.__height - 1:
+                result += "\n"
+        return result 
 
     def __repr__(self):
         """return the string representation of the object"""
