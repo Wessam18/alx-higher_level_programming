@@ -53,7 +53,7 @@ class Rectangle:
 
         for i in range(self.__height):
             result += str(self.print_symbol) * self.__width + "\n"
-        return result
+        return result.rstrip()
 
     def __repr__(self):
         """return the string representation of the object"""
