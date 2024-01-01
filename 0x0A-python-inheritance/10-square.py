@@ -3,12 +3,14 @@
     write a class inherit from Rectangle.
 """
 Rectangle = __import__('9-rectangle').Rectangle
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 
 class Square(Rectangle):
     """Square class"""
     def __init__(self, size):
         """ """
+        Rectangle.__init__(self, size, size)
         super().integer_validator("size", size)
         super().integer_validator("size", size)
         self.__size = size
