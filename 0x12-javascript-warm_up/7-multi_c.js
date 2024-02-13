@@ -3,8 +3,8 @@
 const arg = process.argv;
 const x = arg[2];
 
-if (x) {
-  for (let i = 1; i <= x; i++) {
+if (+x) {
+  for (let i = 1; i <= +x; i++) {
     console.log('C is fun');
   }
 } else {
