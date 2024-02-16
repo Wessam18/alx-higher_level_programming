@@ -6,7 +6,6 @@ import sys
 
 if __name__ == "__main__":
     """ to create connection"""
-    
     mydb = MySQLdb.connect(
         host="localhost",
         port=3306,
@@ -20,8 +19,7 @@ if __name__ == "__main__":
 
     result = mycursor.fetchall()
     for row in result:
-        print (row)
+        print(row)
 
     mycursor.close()
     mydb.close()
-    
