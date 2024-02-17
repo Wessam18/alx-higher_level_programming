@@ -16,14 +16,19 @@ if __name__ == "__main__":
 
     state_name = sys.argv[4]
     mycursor = mydb.cursor()
-    
+
     sql_query = mycursor.execute("SELECT cities.name FROM cities \
                     INNER JOIN states ON cities.state_id = states.id \
-                    WHERE states.name = %s ORDER BY cities.id ASC", (state_name,))
+                    WHERE states.name = %s ORDER BY \
+                        cities.id ASC", (state_name,))
 
     result = mycursor.fetchall()
+
+    city = []
     for row in result:
-        print(row)
+        city.append(row[0])
+    city_str = ", ".join(city)
+    print(city_str)
 
     mycursor.close()
     mydb.close()
