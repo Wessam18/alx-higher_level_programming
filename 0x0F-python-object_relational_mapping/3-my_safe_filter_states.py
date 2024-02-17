@@ -17,7 +17,7 @@ if __name__ == "__main__":
     state_name = sys.argv[4]
 
     mycursor = mydb.cursor()
-    
+
     my_sql = "SELECT * FROM states WHERE \
         name = %s ORDER BY id ASC"
 
