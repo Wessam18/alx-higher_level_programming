@@ -15,10 +15,11 @@ if __name__ == "__main__":
     )
 
     mycursor = mydb.cursor()
-    mycursor.execute("SELECT cities.id, cities.name FROM cities \
+    sql_query = ("SELECT cities.name FROM cities \
                     INNER JOIN states ON cities.state_id = states.id \
-                    ORDER BY cities.id ASC")
-
+                    WHERE states.name = %s ORDER BY cities.id ASC")
+    arg = sys.argv[4]
+    mycursor.execute(sql_query, (arg,))
     result = mycursor.fetchall()
     for row in result:
         print(row)
