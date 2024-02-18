@@ -16,5 +16,5 @@ if __name__ == "__main__":
     session = session()
 
     state_del = session.query(State).filter(State.name.contains('a')).all()
-    session.delete(state_del)
+    session.delete = state_del
     session.commit()
