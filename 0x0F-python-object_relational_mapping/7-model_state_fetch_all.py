@@ -18,4 +18,4 @@ if __name__ == "__main__":
     states = session.query(State).order_by(State.id).all()
 
     for i in states:
-        print("{}: {}".format(State.id, State.name))
+        print("{}: {}".format(i.id, i.name))
