@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ Techniacl interview"""
 
+
 def find_peak(list_of_integers):
     """function to get the peak number"""
 
