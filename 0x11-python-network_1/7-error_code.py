@@ -14,5 +14,3 @@ if __name__ == "__main__":
     else:
         x = response.text
         print(x)
-
-    
