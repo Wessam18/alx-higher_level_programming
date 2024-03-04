@@ -12,5 +12,5 @@ if __name__ == "__main__":
     query = {'email': email}
 
     response = requests.post(url, data=query)
-    x = response.text()
+    x = response.text
     print(x)
