@@ -5,13 +5,18 @@ const fs = require('fs');
 
 const url = process.argv[2];
 const filePath = process.argv[3];
-const writeStream = fs.createWriteStream(filePath);
 
-request(url, (err, resp, data) => {
-  if (err) {
-    console.log(err);
+request.get(url, (error, response, body) => {
+  if (error) {
+    console.error('Error:', error);
+    return;
   }
 
-  writeStream.write(data);
-  writeStream.end();
+  fs.writeFile(filePath, body, 'utf8', (err) => {
+    if (err) {
+      console.error('Error writing file:', err);
+      return;
+    }
+    console.log(`File saved to ${filePath}`);
+  });
 });
