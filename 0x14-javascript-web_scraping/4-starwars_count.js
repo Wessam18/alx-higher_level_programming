@@ -11,7 +11,6 @@ request.get(url, (error, Response, body) => {
   }
   const movie = JSON.parse(body).results;
   if (!movie) {
-    console.log(0);
     return;
   }
   const a = movie.filter(function (el) {
