@@ -2,14 +2,15 @@
 
 const request = require('request');
 const url = process.argv[2];
+const antiId = '18';
 
-request(url, (err, res, body) => {
-  const movies = JSON.parse(body).results;
-  let num = 0;
-  movies.forEach(element => {
-    if (element.characters.includes('https://swapi-api.alx-tools.com/api/people/18/')) {
-      num++;
-    }
+request.get(url, (error, Response, body) => {
+  if (error) {
+    return;
+  }
+  const movie = JSON.parse(body).results;
+  const a = movie.filter(function (el) {
+    return el.characters.includes(`https://swapi-api.alx-tools.com/api/people/${antiId}/`);
   });
-  console.log(err || num);
+  console.log(a.length);
 });
