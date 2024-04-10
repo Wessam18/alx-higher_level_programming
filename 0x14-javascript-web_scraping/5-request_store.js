@@ -7,9 +7,9 @@ const url = process.argv[2];
 const filePath = process.argv[3];
 const writeStream = fs.createWriteStream(filePath);
 
-request.get(url, (error, response, body) => {
-  if (error) {
-    console.log(error);
+request(url, (err, resp, data) => {
+  if (err) {
+    console.log(err);
   }
 
   writeStream.write(data);
