@@ -14,7 +14,7 @@ request.get(url, (error, Response, body) => {
     return;
   }
   const a = movie.filter(function (el) {
-    return el.characters.includes('https://swapi-api.alx-tools.com/api/people/${antiId}/');
+    return el.characters.includes(`https://swapi-api.alx-tools.com/api/people/${antiId}/`);
   });
   console.log(a.length);
 });
