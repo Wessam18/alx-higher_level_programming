@@ -12,7 +12,7 @@ request(url, (err, resp, body) => {
     console.log(err);
     return;
   }
-  
+
   writeStream.write(body);
   writeStream.end();
 });
